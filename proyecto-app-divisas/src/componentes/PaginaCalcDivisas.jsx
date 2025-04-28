@@ -10,7 +10,7 @@ const PaginaCalcDivisas = () => {
         <>
             <section className="flex flex-col">
                 <Navbar />
-                <article className="bg-fondoWeb">
+                <article className="bg-fondoWeb min-h-screen lg:bg-slate-100">
                     <CalculadoraDivisas />
                 </article>
                 <article className="">

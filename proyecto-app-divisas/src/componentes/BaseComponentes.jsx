@@ -7,14 +7,14 @@ export const BaseComponentes = () => {
 
   return (
     <>
-      <main className="">
+      <main className="w-full">
         <section className="">
           <Navbar />
         </section>
-        <section className="my-auto mx-auto">
+        <section className="w-full my-auto mx-auto">
           <PaginaPrincipal />
         </section>
-        <section>
+        <section className="">
           <Footbar />
         </section>
       </main>

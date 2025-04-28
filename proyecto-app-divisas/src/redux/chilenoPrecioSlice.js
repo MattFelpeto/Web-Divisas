@@ -49,7 +49,7 @@ export const getPesoChilenoCompra = createAsyncThunk(
     async () => {
         try {
             const response = await axios.get(URLPesoChileno);
-            return response.data.compra;
+            return response.data.compra.toFixed(2);
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
         }
@@ -61,7 +61,7 @@ export const getPesoChilenoVta = createAsyncThunk(
     async ()=>{
         try {
             const response = await axios.get(URLPesoChileno);
-            return response.data.venta
+            return response.data.venta.toFixed(2);
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
         }

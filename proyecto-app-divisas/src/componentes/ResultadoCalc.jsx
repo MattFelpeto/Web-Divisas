@@ -3,7 +3,6 @@ import { getEuroCompra } from '../redux/euroPrecioSlice';
 import { getRealCompra } from '../redux/realPrecioSlice';
 import { useEffect, useState } from 'react';
 import { setValorIngresadoCalc } from '../redux/importeAcalcularSlice';
-import { motion } from 'framer-motion';
 import { getDolarBlueCompra } from '../redux/dolarBlueSlice';
 import { getPesoChilenoCompra } from '../redux/chilenoPrecioSlice';
 import { getUruguayoCompra } from '../redux/uruguayoPrecioSlice';
@@ -219,14 +218,13 @@ export const ResultadoCalc = () => {
     <>
       <section className='flex flex-col w-20 mx-auto justify-center'>
           <article className='flex flex-col justify-center'>
-          <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} >
-            <button onClick={calcularDivisa} type="button" className="w-30 my-10 flex flex-row p-2 justify-center align-middle shadow-md hover:animate-spin shadow-gray-700 bg-transparent bg-slate-500 outline outline-1 outline-gray-500 rounded-[30%]">
+            <button onClick={calcularDivisa} type="button" className="w-30 lg:w-16 my-10 lg:my-4 mx-auto flex flex-row p-2 justify-center align-middle shadow-md hover:animate-spin lg:hover:animate-none shadow-gray-700 rounded-[30%] lg:rounded-[10%] lg:shadow-lg lg:bg-color-2 hover:lg:bg-color-1
+            transition-all ease-in-out duration-500">
                 <div className='flex flex-col'>
-                  <img className="w-18" src={botonConversor} alt="boton-convertir-divisa" />
-                  <h6 className='font-[Roboto] mt-1'>Convertir</h6>
+                  <img className="w-18 lg:w-8 lg:mx-auto lg:hidden" src={botonConversor} alt="boton-convertir-divisa" />
+                  <h6 className='font-[Roboto] lg:text-xs mt-1 lg:text-white'>Convertir</h6>
                 </div>
             </button>
-            </motion.div>
           </article>
       </section>
     </>

@@ -14,7 +14,7 @@ export const getUruguayoCompra = createAsyncThunk(
     async () => {
         try {
             const response = await axios.get('https://dolarapi.com/v1/cotizaciones/uyu');
-            return response.data.compra
+            return response.data.compra.toFixed(2);
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
         }
@@ -26,7 +26,7 @@ export const getUruguayoVenta = createAsyncThunk(
     async() => {
         try {
             const response = await axios.get('https://dolarapi.com/v1/cotizaciones/uyu');
-            return response.data.venta
+            return response.data.venta.toFixed(2);
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
         }

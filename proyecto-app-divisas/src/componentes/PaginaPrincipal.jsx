@@ -1,49 +1,50 @@
-import PrecioDolarBlue from "../apis/cardDolarBlue"
-import PrecioDolarOficial from "../apis/cardDolarOficial"
-import ObtenerDolarCripto from "../apis/cardDolarCripto"
-import PrecioDolarMep from "../apis/cardDolarMep"
-import { motion } from "framer-motion";
-import { useState } from "react";
-import ExtensionVerMasDivisas from "../subComponentes/extensionVerMasDivisas";
+import PrecioDolarBlue from "../Cards/cardDolarBlue"
+import PrecioDolarOficial from "../Cards/cardDolarOficial"
+import ObtenerDolarCripto from "../Cards/cardDolarCripto"
+import PrecioDolarMep from "../Cards/cardDolarMep"
+import ApiDolarMayorista from "../Cards/cardDolarMayorista";
+import PrecioDolarEuro from '../Cards/cardEuro';
+import PrecioReal from '../Cards/cardReal';
+import PrecioPesoChileno from '../Cards/cardPesoChileno';
+import PrecioPesoUruguayo from '../Cards/cardPesoUruguayo';
+import { Banner } from "../subComponentes/Banner";
+
 
 const PaginaPrincipal = () => {
 
-    const [isVerMasOpen, setIsVerMasOpen] = useState(false);
-
-    const clickVerMas = () => {
-        setIsVerMasOpen(!isVerMasOpen);
-    }
-
     return (
         <>
-            <section className="flex flex-col bg-fondoWeb w-full">
-                <div className="flex flex-col sm:flex-row sm:justify-center">
-                    <div className="mx-auto">
+            <section className="grid lg:grid-cols-3 xs:grid-cols-1 sm:grid-col-1 md:grid-cols-2 p-4 bg-fondoWeb w-full min-h-screen">
+                <article className="mx-auto">
                     <PrecioDolarOficial />
-                    </div>
-                    <div className="mx-auto">
+                </article>
+                <article className="mx-auto">
                     <PrecioDolarBlue />
-                    </div>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-center">
-                <div className="mx-auto">
+                </article>
+                <article className="mx-auto">
                     <ObtenerDolarCripto />
-                    </div>
-                    <div className="mx-auto">
+                </article>
+                <article className="w-full xs:hidden lg:flex col-span-3">
+                    <Banner/>
+                </article>
+                <article className="mx-auto">
                     <PrecioDolarMep />
-                    </div>
-                </div>
-                {isVerMasOpen ?
-                    <ExtensionVerMasDivisas />
-                    :
-                    <article className='flex justify-center'>
-                        <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} >
-                            <button type='button' onClick={clickVerMas} className='w-24 h-10 mt-9 mb-9 text-md cursor-pointer bg-color-2 rounded-md mx-auto text-color-text font-[Roboto] shadow-md shadow-black'>
-                                Ver mas
-                            </button>
-                        </motion.div>
-                    </article>
-                }
+                </article>
+                <article className="mx-auto">
+                    <ApiDolarMayorista />
+                </article>
+                <article className="mx-auto">
+                    <PrecioDolarEuro />
+                </article>
+                <article>
+                    <PrecioReal />
+                </article>
+                <article>
+                    <PrecioPesoChileno />
+                </article>
+                <article>
+                    <PrecioPesoUruguayo />
+                </article>
             </section>
         </>
     )

@@ -14,7 +14,7 @@ export const getRealCompra = createAsyncThunk(
     async ()=>{
         try {
             const response = await axios.get('https://dolarapi.com/v1/cotizaciones/brl');
-            return (Math.ceil(response.data.compra));
+            return response.data.compra.toFixed(2);
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
         }
@@ -26,7 +26,7 @@ export const getRealVenta = createAsyncThunk(
     async ()=> {
         try {
             const response = await axios.get('https://dolarapi.com/v1/cotizaciones/brl');
-            return response.data.venta;
+            return response.data.venta.toFixed(2);
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
         }
